@@ -1,0 +1,91 @@
+@font-face{font-family:"Barlow Condensed";src:url("./assets/barlow-700.ttf") format("truetype");font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url("./assets/barlow-800.ttf") format("truetype");font-style:normal;font-weight:800;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url("./assets/instrument-400.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url("./assets/instrument-700.ttf") format("truetype");font-style:normal;font-weight:700;font-display:swap}
+:root{--yellow:#fbc42d;--ink:#101625;--cream:#fffaef;--muted:#687080}
+*{box-sizing:border-box}
+html{background:var(--yellow)}
+body{margin:0;background:var(--yellow);color:var(--ink);font-family:"Instrument Sans",sans-serif}
+button,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+.page{width:min(100%,393px);min-height:100vh;margin:0 auto;background:var(--yellow);overflow-x:clip}
+.content{width:calc(100% - 31px);max-width:362px;margin:0 auto;padding-top:32px;display:flex;flex-direction:column;gap:30px}
+.hero{display:flex;flex-direction:column;align-items:center}
+.logo{display:block;width:131px;height:115px;object-fit:contain}
+h1,h2,p{margin:0}
+h1{margin-top:20px;width:100%;font:700 20px/23.25px "Instrument Sans",sans-serif;text-align:center;letter-spacing:-.35px}
+.social-proof{height:41px;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:16px;width:100%}
+.avatars{display:flex;align-items:center;width:159px;height:41px}
+.avatars img{width:40px;height:40px;object-fit:cover;border-radius:12px;box-shadow:0 2px 0 var(--ink);margin-right:-8px;animation:avatar-float 6s ease-in-out infinite;will-change:transform}
+.avatars img:nth-child(1){--tilt:2.9deg;animation-delay:0s}
+.avatars img:nth-child(2){--tilt:3.58deg;animation-delay:-1.2s}
+.avatars img:nth-child(3){--tilt:-4.77deg;animation-delay:-2.4s}
+.avatars img:nth-child(4){--tilt:2.38deg;animation-delay:-3.6s}
+.avatars img:nth-child(5){--tilt:-3.69deg;animation-delay:-4.8s;margin-right:0}
+@keyframes avatar-float{0%,100%{transform:translate3d(-1px,1px,0) rotate(calc(var(--tilt) - 1deg))}50%{transform:translate3d(1px,-3px,0) rotate(calc(var(--tilt) + 1.5deg))}}
+@media(prefers-reduced-motion:reduce){.avatars img{animation:none;transform:rotate(var(--tilt))}}
+.rating{width:106px;height:41px;display:flex;flex-direction:column;justify-content:center;white-space:nowrap}
+.stars{height:17px;display:flex;align-items:center;gap:2px}
+.stars img{display:block;width:17px;height:17px;padding:3px;border-radius:4px;background:rgba(255,255,255,.15)}
+.rating span{font:700 12px/24px "Instrument Sans",sans-serif}
+.actions{display:flex;flex-direction:column;gap:14px;width:100%}
+.action,.coupon,.menu-link{background:var(--cream);border:1.6px solid var(--ink);box-shadow:4px 5px 0 var(--ink)}
+.action{height:68px;border-radius:22px;padding:0 15px;display:grid;grid-template-columns:42px 1fr 42px;align-items:center;gap:0;text-align:center;font:800 20px/24px "Barlow Condensed",sans-serif;letter-spacing:.2px;transition:transform .15s,box-shadow .15s}
+.action:hover,.menu-link:hover{transform:translate(2px,2px);box-shadow:2px 3px 0 var(--ink)}
+.action:focus-visible,.menu-link:focus-visible,.copy-button:focus-visible,.review-arrow:focus-visible{outline:3px solid #284fff;outline-offset:3px}
+.action-icon{width:40px;height:40px;border-radius:15px;display:grid;place-items:center;flex:none}
+.action-icon img{width:24px;height:24px;display:block}
+.action-icon.order{background:var(--yellow)}
+.action-icon.ifood{background:#ea1d2c}
+.action-icon.ifood img{width:32px;height:17px}
+.action-icon.whatsapp{background:#25d366}
+.action-icon.location{background:#284fff}
+.coupon{height:75px;border-radius:22px;padding:0 15px;display:flex;align-items:center;gap:11px}
+.coupon-icon{background:var(--ink)}
+.coupon-copy{display:flex;flex:1;min-width:0;flex-direction:column}
+.coupon-copy span{font:700 12px/15px "Instrument Sans",sans-serif;white-space:nowrap}
+.coupon-copy strong{font:800 20px/28px "Barlow Condensed",sans-serif;letter-spacing:.2px;white-space:nowrap}
+.copy-button{width:42px;height:42px;flex:none;border:1.6px solid var(--ink);border-radius:13px;background:transparent;display:grid;place-items:center}
+.copy-button img{width:18px;height:18px}
+.section{width:100%;display:flex;flex-direction:column;gap:16px}
+h2{text-align:center;font:700 34px/41px "Barlow Condensed",sans-serif;letter-spacing:-1.19px;white-space:nowrap}
+.burger-carousel,.review-carousel{width:calc(100% + 6px);padding:0 6px 6px 0;overflow:hidden;touch-action:pan-y}
+.burger-carousel:focus-visible{outline:3px solid #284fff;outline-offset:3px;border-radius:40px}
+.burger-track,.review-track{position:relative;display:flex;gap:14px;transition:transform .9s cubic-bezier(.22,1,.36,1);will-change:transform}
+.burger-card{position:relative;flex:0 0 100%;height:235px;overflow:hidden;border:4px solid var(--ink);padding:4px;border-radius:40px;box-shadow:4px 5px 0 #0c1422;background:var(--cream);transform:scale(.975);filter:brightness(.9);transition:transform .9s cubic-bezier(.22,1,.36,1),filter .9s ease}
+.burger-card.is-active{transform:scale(1);filter:brightness(1)}
+.burger-card::after{content:"";position:absolute;inset:0 0 68px;z-index:1;border-radius:36px 36px 0 0;background:linear-gradient(180deg,rgba(0,0,0,.2) 20.5%,transparent 99.8%);pointer-events:none}
+.burger-background{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;border-radius:36px}
+.burger-card--tomada .burger-background{object-position:center 90%}
+.burger-photo{position:relative;z-index:2;height:159px;overflow:hidden;border-radius:34px 34px 0 0}
+.favorite-label{position:absolute;z-index:1;top:16px;left:22.5px;height:29px;padding:7px 18px;background:var(--yellow);border:1px solid var(--ink);border-radius:100px;box-shadow:0 2px 0 var(--ink);font:800 12px/14px "Barlow Condensed",sans-serif;white-space:nowrap}
+.burger-name{position:absolute;z-index:2;left:0;right:0;bottom:0;height:68px;display:flex;align-items:center;justify-content:center;padding:0 15px;background:var(--cream);text-align:center;font:800 22px/26px "Barlow Condensed",sans-serif;letter-spacing:.2px;white-space:nowrap}
+.burger-dots{height:9px;display:flex;align-items:center;justify-content:center;gap:8px}
+.burger-dot{width:9px;height:9px;padding:0;border:0;border-radius:9px;background:var(--ink);opacity:.35;transition:width .35s ease,opacity .35s ease}
+.burger-dot.is-active{width:24px;opacity:1}
+.burger-dot:focus-visible{outline:3px solid #284fff;outline-offset:3px}
+.menu-link{height:54px;min-height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font:700 20px/24px "Barlow Condensed",sans-serif;transition:transform .15s,box-shadow .15s}
+.review-card{flex:0 0 100%;min-height:237.45px;padding:18px 18px 16px;background:#fff8ea;border:1.6px solid var(--ink);border-radius:24px;box-shadow:4px 5px 0 var(--ink);transform:scale(.975);filter:brightness(.9);transition:transform .9s cubic-bezier(.22,1,.36,1),filter .9s ease}
+.review-card.is-active{transform:scale(1);filter:brightness(1)}
+.review-header{display:flex;align-items:center;justify-content:space-between;min-height:65px}
+.review-author{display:flex;flex-direction:column;align-items:flex-start}
+.quote-mark{display:block;width:32px;height:20px;transform:rotate(-8deg);margin-bottom:12px}
+.review-author strong{font:700 18px/18px "Barlow Condensed",sans-serif}
+.review-source:hover{text-decoration:underline}
+.review-source:focus-visible{outline:3px solid #284fff;outline-offset:3px}
+.review-author span{font:700 12px/15px "Instrument Sans",sans-serif;color:var(--muted);opacity:.6}
+.review-avatar{width:40px;height:40px;object-fit:cover;border:1px solid #000;border-radius:14px;box-shadow:-1px 2px 0 var(--ink);transform:rotate(-3.69deg)}
+.review-card p{padding-top:14px;font:700 15px/21.75px "Instrument Sans",sans-serif;color:var(--muted)}
+.review-navigation{height:42px;margin-top:8px;display:flex;align-items:center;justify-content:space-between}
+.review-dots{display:flex;align-items:center;gap:8px}
+.review-dot{display:block;width:16px;height:9px;border-radius:18px;background:var(--ink);opacity:.2}
+.review-dot.active{opacity:1}
+.review-buttons{display:flex;gap:12px}
+.review-arrow{width:42px;height:42px;border:1.6px solid var(--ink);border-radius:50%;box-shadow:0 3px 0 var(--ink);background:#fff;display:grid;place-items:center}
+.review-arrow img{width:20px;height:20px}
+footer{height:64px;padding:16px 0 32px;text-align:center;font:400 12px/16px "Instrument Sans",sans-serif;white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,15px);max-width:calc(100vw - 30px);padding:10px 15px;border-radius:10px;background:var(--ink);color:white;font:700 13px/18px "Instrument Sans",sans-serif;box-shadow:0 4px 15px #10162540;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:5;text-align:center}
+.toast.visible{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){.burger-track,.burger-card,.burger-dot,.review-track,.review-card{transition:none}}
+@media(max-width:360px){.content{width:calc(100% - 24px)}h2{font-size:clamp(27px,8.5vw,34px)}.coupon{gap:8px;padding:0 12px}.coupon-copy strong{font-size:18px}.action{font-size:19px}.burger-name{font-size:clamp(17px,5.6vw,22px)}.review-card p{font-size:14px;line-height:20px}footer{font-size:10px}}
